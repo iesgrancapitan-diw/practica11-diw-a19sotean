@@ -1,0 +1,270 @@
+body {
+  background: #f0f8ea;
+  font-family: "Luxurious Roman", cursive;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+.logotitulo {
+  display: flex;
+}
+header {
+  background: #f79fbe;
+  color: #222222;
+  position: relative;
+}
+header::after {
+  display: block;
+}
+h1 {
+  font-family: "Licorice", cursive;
+  font-size: 50px;
+}
+.site-nav {
+  top: 100%;
+  right: 0;
+  position: absolute;
+  background: #fcc2d6;
+  clip-path: circle(0px at top right);
+  transition: clip-path ease-in-out 700ms;
+}
+.site-nav-open {
+  clip-path: circle(150% at top right);
+}
+.site-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.site-nav li {
+  border-bottom: 1px solid #575766;
+}
+.site-nav li:last-child {
+  border-bottom: none;
+}
+.site-nav a {
+  color: #222222;
+  display: block;
+  padding: 2em 6em;
+  text-decoration: none;
+}
+.site-nav a:hover,
+.site-nav a:focus {
+  color: #04cf92;
+}
+
+.menu-toggle {
+  padding: 1em;
+  position: absolute;
+  top: 2.5em;
+  right: 0.5em;
+}
+.menu-open .hamburger {
+  transform: rotate(45deg);
+}
+.menu-open .hamburger::before {
+  opacity: 0;
+}
+.menu-open .hamburger::after {
+  transform: translateY(-3px) rotate(-90deg);
+}
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  display: block;
+  background: #222222;
+  height: 3px;
+  width: 1.75em;
+  border-radius: 3px;
+  transition: all ease-in-out 500ms;
+}
+.hamburger::before {
+  transform: translateY(-6px);
+}
+.hamburger::after {
+  transform: translateY(3px);
+}
+
+main section article {
+  margin: 30px;
+  padding: 5px;
+  box-shadow: 4px 3px 4px #bbdefb;
+  background-color: #04cf9217;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+main section article h2 {
+  background-color: #04cf92;
+}
+
+main section article div {
+  padding: 20px;
+}
+
+main section article div img {
+  padding: 5px;
+}
+
+main section article div img:hover {
+  transform: scale(1.2);
+}
+
+h2 {
+  text-align: center;
+}
+
+form {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+input[type="text"],
+input[type="date"],
+select {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  width: 300px;
+  height: 30px;
+  margin: 8px;
+}
+
+textarea {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  width: 300px;
+  height: 100px;
+  margin: 8px;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+textarea:focus,
+select:focus {
+  outline: 0px;
+}
+
+input[type="text"]:focus:invalid,
+input[type="date"]:focus:invalid {
+  border: 2px solid rgb(207, 68, 68);
+}
+
+textarea:focus:invalid {
+  border: 2px solid rgb(207, 68, 68);
+}
+
+select:focus:invalid {
+  border: 2px solid rgb(207, 68, 68);
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus:valid {
+  border: 2px solid rgb(57, 224, 57);
+}
+
+textarea:focus:valid {
+  border: 2px solid rgb(57, 224, 57);
+}
+
+select:focus:valid {
+  border: 2px solid rgb(57, 224, 57);
+}
+
+input[type="submit"] {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border-color: #f79fbe;
+  background-color: #fcc2d6;
+  height: 40px;
+}
+
+footer {
+  padding: 30px;
+  text-align: center;
+  background-color: #f79fbe;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+}
+
+@media only screen and (min-width: 728px) {
+
+  .menu-toggle {
+    display: none;
+  }
+  .site-nav {
+    padding: 50px;
+    position: relative;
+    background: transparent;
+    margin-right: 10px;
+    clip-path: initial;
+  }
+  .site-nav li {
+    display: inline-block;
+    border: none;
+  }
+
+  .site-nav a {
+    padding: 0;
+    margin-left: 3em;
+  }
+  .site-nav a:hover,
+  .site-nav a:focus {
+    background: transparent;
+  }
+
+  main section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  aside {
+    margin: 15px;
+    display: block;
+  }
+
+}
+
+@media only screen and (min-width: 1024px){
+
+  #web {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "header header     header      header"
+      "main    main      main     aside"
+      "footer footer footer footer";
+  }
+
+  header {
+    grid-area: header;
+  }
+
+  main {
+    grid-area: main;
+  }
+
+  footer {
+    grid-area: footer;
+  }
+
+  aside {
+    grid-area: aside;
+    position: fixed;
+    right: 0;
+    margin-top: 120px;
+  }
+
+  main section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  main section article {
+    margin: 15px;
+  }
+
+}
